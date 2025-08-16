@@ -1,0 +1,22 @@
+﻿@using EntityLayer.Concrete
+@model List<About>
+
+@foreach (var item in Model)
+{
+	<strong><i class="fas fa-book mr-1"></i> Biyografi</strong>
+	<p class="text-muted">
+		@item.Description
+	</p>
+	<hr>
+	<strong><i class="fas fa-map-marker-alt mr-1"></i> Adres</strong>
+	<p class="text-muted">@item.Address</p>
+	<hr>
+	<strong><i class="fas fa-phone mr-1"></i> Telefon</strong>
+	<p class="text-muted">@item.Phone</p>
+	<hr>
+	<strong><i class="fas fa-envelope mr-1"></i> E-posta</strong>
+	<p class="text-muted">
+		@item.Mail
+	</p>
+	<hr>
+}

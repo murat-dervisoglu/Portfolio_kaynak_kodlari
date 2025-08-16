@@ -1,0 +1,43 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>	
+	@await Html.PartialAsync("HeaderPartial")
+<body class="hold-transition sidebar-mini">
+	@await Html.PartialAsync("NavbarPartial")
+	<div class="wrapper">		
+		<section class="content-header">
+			<div class="row">
+				<div class="col-md-3">
+					@await Component.InvokeAsync("FeatureList")
+					<div class="card card-primary">
+						<div class="card-header">
+							<h3 class="card-title">Hakkımda</h3>
+						</div>
+						<div class="card-body">
+							@await Component.InvokeAsync("AboutList")							
+							@await Component.InvokeAsync("SkillList")
+							<strong><i class="fas fa-comment mr-1"></i> Sosyal Adresler </strong>
+							@await Component.InvokeAsync("SocialMediaPart")
+							<hr />
+						</div>
+					</div>
+				</div>
+				<div class="col-md-9">
+					@await Component.InvokeAsync("ExperienceList")					
+					@await Component.InvokeAsync("PortfolioList")	
+					@await Component.InvokeAsync("EducationList")
+					@await Component.InvokeAsync("TestimonialList")
+					@await Component.InvokeAsync("ContactList")		
+				</div>
+			</div>
+		</section>
+	</div>
+	<script src="~/AdminLTE-3.0.4/plugins/jquery/jquery.min.js"></script>
+	<script src="~/AdminLTE-3.0.4/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<script src="~/AdminLTE-3.0.4/dist/js/adminlte.min.js"></script>
+	<script src="~/AdminLTE-3.0.4/dist/js/demo.js"></script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+﻿@using EntityLayer.Concrete
+@model List<About>
+
+@{
+	ViewData["Title"] = "Index";
+	Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container">
+	<div class="row justify-content-center">
+		@foreach (var item in Model)
+		{
+			<div class="col-lg-6 col-md-8 col-sm-10 d-flex justify-content-center">
+				<div class="card card-primary card-outline shadow-lg" style="width: 600px;">
+					<h3 class="alert-primary text-center text-bold "> Hakkımda</h3>
+					<div class="card-body box-profile text-center">
+						<div class="mb-3">
+							<strong> Biyografi</strong>
+							<hr />
+							<p> @item.Description </p>
+						</div>
+						<hr />
+						<ul class="list-group list-group-flush mb-3">
+							<li class="list-group-item d-flex justify-content-between">
+								<b>Adres:</b> <span>@item.Address</span>
+							</li>
+							<li class="list-group-item d-flex justify-content-between">
+								<b>Telefon:</b> <span>@item.Phone</span>
+							</li>
+							<li class="list-group-item d-flex justify-content-between">
+								<b>E-Posta:</b> <span>@item.Mail</span>
+							</li>
+							<li class="list-group-item d-flex justify-content-between">
+								<b>Doğum Tarihi:</b> <span>@item.BirthDate</span>
+							</li>
+						</ul>
+						<a href="/About/EditAbout/@item.AboutID/" class="btn btn-outline-primary w-100"><b>Güncelle</b></a>
+					</div>
+				</div>
+			</div>
+		}
+	</div>
+</div>

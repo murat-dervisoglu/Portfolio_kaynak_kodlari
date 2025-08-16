@@ -1,0 +1,36 @@
+﻿@model MyPage.Models.MailRequest
+
+<div class="col-md-7 d-print-none">
+    <div class="my-2">
+        <form method="post">
+            <div class="form-group">
+                <label asp-for="Name" class="form-label">Adınız *</label>
+                <input asp-for="Name" class="form-control" required />
+            </div>
+            <div class="form-group">
+                <label asp-for="Surname" class="form-label">Soyadınız *</label>
+                <input asp-for="Surname" class="form-control" required />
+            </div>
+            <div class="form-group">
+                <label asp-for="Phone" class="form-label">Telefon Numaranız</label>
+                <input asp-for="Phone" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="SenderMail" class="form-label">E-posta Adresiniz *</label>
+                <input asp-for="SenderMail" type="email" class="form-control" required />
+            </div>
+            <div class="form-group">
+                <label asp-for="Subject" class="form-label">Konu *</label>
+                <input asp-for="Subject" class="form-control" required />
+            </div>
+            <div class="form-group">
+                <label asp-for="Content" class="form-label">Mesajınız *</label>
+                <textarea asp-for="Content" class="form-control" rows="4" required></textarea>
+            </div>
+            <div class="col-md-10">
+                <button type="submit" class="btn btn-primary" style="margin-top: 20px;">Gönder</button>
+                * İşaretlemesi Zorunlu Alan
+            </div>         
+        </form>
+    </div>
+</div>               

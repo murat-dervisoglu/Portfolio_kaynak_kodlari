@@ -1,0 +1,11 @@
+﻿@using EntityLayer.Concrete
+@model List<About>
+
+@foreach (var item in Model)
+{
+    <strong><i class="fas fa-calendar mr-1"></i> Doğum Tarihi</strong>
+    <p class="text-muted">
+        @item.BirthDate
+    </p>
+    <hr>
+}

@@ -1,0 +1,53 @@
+﻿@model MyPage.Models.EditPortfolioViewModel
+
+@{
+    ViewData["Title"] = "EditPortfolio";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="col-md-12">
+	<div class="card">
+		<form class="form-group" asp-action="EditPortfolio" asp-controller="Portfolio" method="post" enctype="multipart/form-data">
+			<div class="card-header border-0">
+				<h4 class="mb-0">Projeyi Güncelle</h4>
+			</div>
+			<div class="card-body">
+				@Html.HiddenFor(x => x.PortfolioID)
+				<div class="form-group">
+					<label>Proje Adı</label>
+					<input type="text" class="form-control" asp-for="PortfolioName" />
+				</div>
+				<div class="form-group">
+					<label>Proje GitHub Adresi</label>
+					<input type="text" class="form-control" asp-for="ProjectUrl" />
+				</div>
+				<div class="form-group">
+					<label>Açıklama</label>
+					<textarea class="form-control" name="Description" rows="2"></textarea>
+				</div>
+				<div class="form-group">
+					<label> Birinci Görsel Alanı</label>
+					<img src="@Model.ExistingImage1" width="100" /><br />
+					<input type="file" asp-for="ImageUrl1">
+				</div>
+				<div class="form-group">
+					<label>İkinci Görsel Alanı</label>
+					<img src="@Model.ExistingImage2" width="100" /><br />
+					<input type="file" asp-for="ImageUrl2">
+				</div>
+				<div class="form-group">
+					<label>Üçüncü Görsel Alanı</label>
+					<img src="@Model.ExistingImage3" width="100" /><br />
+					<input type="file" asp-for="ImageUrl3">
+				</div>
+				<div class="form-group">
+					<label>Dördüncü Görsel Alanı</label>
+					<img src="@Model.ExistingImage4" width="100" /><br />
+					<input type="file" asp-for="ImageUrl4">
+				</div>
+				<button type="submit" class="btn btn-primary mr-2">Kaydet</button>
+				<button type="button" class="btn btn-light" onclick="history.back()">Geri</button>
+			</div>
+		</form>
+	</div>
+</div>

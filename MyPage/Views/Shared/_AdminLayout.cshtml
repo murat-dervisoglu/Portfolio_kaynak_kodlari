@@ -1,0 +1,133 @@
+﻿@{
+	Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<title>Yönetici Paneli</title>
+	<link rel="stylesheet" href="~/AdminLTE-3.0.4/plugins/fontawesome-free/css/all.min.css">
+	<!-- IonIcons -->
+	<link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+	<!-- Theme style -->
+	<link rel="stylesheet" href="~/AdminLTE-3.0.4/dist/css/adminlte.min.css">
+	<!-- Google Font: Source Sans Pro -->
+	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+</head>
+<body class="hold-transition sidebar-mini">
+	<aside class="main-sidebar sidebar-dark-primary elevation-4">
+		<div class="sidebar">
+			@await Component.InvokeAsync("FeatureGet")
+			<nav class="mt-2">
+				<ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+					<li class="nav-item has-treeview menu-open">
+						<a href="/Feature/Index/" class="nav-link ">
+							<i class="nav-icon fas fa-house-user"></i>
+							<p>
+								Ana Sayfa (feature)
+							</p>
+						</a>
+					</li>
+					<li class="nav-item">
+						<a href="/About/Index/" class="nav-link">
+							<i class="nav-icon fas fa-user"></i>
+							<p>
+								Hakkımda
+							</p>
+						</a>
+					</li>
+					<li class="nav-item has-treeview">
+						<a href="/Education/Index/" class="nav-link">
+							<i class="nav-icon fas fa-copy"></i>
+							<p>
+								Eğitim
+							</p>
+						</a>
+					</li>
+					<li class="nav-item has-treeview">
+						<a href="/Experience/Index/" class="nav-link">
+							<i class="nav-icon fas fa-chart-pie"></i>
+							<p>
+								Deneyim
+							</p>
+						</a>
+					</li>
+					<li class="nav-item has-treeview">
+						<a href="/Portfolio/Index/" class="nav-link">
+							<i class="nav-icon fas fa-layer-group"></i>
+							<p>
+								Projeler
+							</p>
+						</a>
+					</li>
+					<li class="nav-item has-treeview">
+						<a href="/Skill/Index/" class="nav-link">
+							<i class="nav-icon fas fa-check"></i>
+							<p>
+								Beceriler
+							</p>
+						</a>
+					</li>
+					<li class="nav-item has-treeview">
+						<a href="/Testimonial/Index/" class="nav-link">
+							<i class="nav-icon fas fa-edit"></i>
+							<p>
+								Referanslar
+							</p>
+						</a>
+					</li>
+					<li class="nav-item has-treeview">
+						<a href="/SocialMedia/Index/" class="nav-link">
+							<i class="nav-icon fas fa-comment"></i>
+							<p>
+								Sosyal Medya
+							</p>
+						</a>
+					</li>
+					<li class="nav-item has-treeview">
+						<a href="/Default/Index/" class="nav-link">
+							<i class="nav-icon fas fa-arrow-right"></i>
+							<p>
+								Öz Geçmiş
+							</p>
+						</a>
+					</li>
+					<li class="nav-item has-treeview">
+						<a href="/Page/Index/" class="nav-link">
+							<i class="nav-icon fas fa-arrow-right"></i>
+							<p>
+								Sayfa
+							</p>
+						</a>
+					</li>
+					<li class="nav-item has-treeview">
+						<a href="/Login/Logout/" class="nav-link">
+							<i class="nav-icon fas fa-power-off"></i>
+							<p>
+								Oturumu Kapat
+							</p>
+						</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</aside>
+	<div class="content-wrapper">
+		<div class="content-header">
+			<div class="container-fluid">
+				<div class="row mb-2">
+					@RenderBody()
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="~/AdminLTE-3.0.4/plugins/jquery/jquery.min.js"></script>
+	<script src="~/AdminLTE-3.0.4/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<script src="~/AdminLTE-3.0.4/dist/js/adminlte.js"></script>
+	<script src="~/AdminLTE-3.0.4/plugins/chart.js/Chart.min.js"></script>
+	<script src="~/AdminLTE-3.0.4/dist/js/demo.js"></script>
+	<script src="~/AdminLTE-3.0.4/dist/js/pages/dashboard3.js"></script>
+</body>
+</html>

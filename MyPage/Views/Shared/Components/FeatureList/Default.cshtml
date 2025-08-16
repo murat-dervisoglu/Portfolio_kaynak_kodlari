@@ -1,0 +1,16 @@
+﻿@using EntityLayer.Concrete
+@model List<Feature>
+
+@foreach (var item in Model)
+{
+	<div class="card card-primary card-outline">
+		<div class="card-body box-profile">
+			<div class="text-center">
+				<img class="profile-user-img img-fluid img-circle"
+				src="@item.ImageUrl">
+			</div>
+			<h3 class="profile-username text-center"><b>@item.Name @item.Surname </b></h3>
+			<p class="text-muted text-center"><b>@item.Title</b></p>
+		</div>
+	</div>
+}

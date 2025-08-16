@@ -1,0 +1,42 @@
+﻿@using EntityLayer.Concrete
+@model List<About>
+
+<div class="about-section pt-4 px-3 px-lg-4 mt-1"id="about">
+	<div class="row">
+		@foreach (var item in Model)
+		{
+			<div class="col-md-6">
+				<h2 class="h3 mb-3">Hakkımda</h2>
+				<p>@item.Description</p>
+			</div>
+			<div class="col-md-5 offset-md-1">
+				<div class="row mt-2">
+					<div class="col-sm-4">
+						<div class="pb-1">Adres</div>
+					</div>
+					<div class="col-sm-8">
+						<div class="pb-1 text-secondary">@item.Address</div>
+					</div>					
+					<div class="col-sm-4">
+						<div class="pb-1">Telefon</div>
+					</div>
+					<div class="col-sm-8">
+						<div class="pb-1 text-secondary">@item.Phone</div>
+					</div>
+					<div class="col-sm-4">
+						<div class="pb-1">Email</div>
+					</div>
+					<div class="col-sm-8">
+						<div class="pb-1 text-secondary">@item.Mail</div>
+					</div>
+					<div class="col-sm-4">
+						<div class="pb-1">Doğum Tarihi</div>
+					</div>
+					<div class="col-sm-8">
+						<div class="pb-1 text-secondary">@item.BirthDate</div>
+					</div>
+				</div>
+			</div>
+		}
+	</div>
+</div>

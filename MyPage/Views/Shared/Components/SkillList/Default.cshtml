@@ -1,0 +1,11 @@
+﻿@using EntityLayer.Concrete
+@model List<Skills>
+<strong><i class="fas fa-check mr-1"></i> Beceriler </strong>
+<p class="text-muted">
+	@foreach(var item in Model)
+	{
+		@(@item.Name + @",  ")
+	}
+	<hr />
+	@await Component.InvokeAsync("AboutList", new { onlyBirthDate = true })
+</p>

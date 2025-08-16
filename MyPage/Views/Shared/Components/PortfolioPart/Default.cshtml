@@ -1,0 +1,21 @@
+﻿@using EntityLayer.Concrete
+@model List<Portfolio>
+
+<div class="education-section px-3 px-lg-4 pb-4" id="portfolio">
+	<h2 class="h3 mb-4">Projeler</h2>
+	<div class="timeline">
+		@foreach (var item in Model)
+		{
+			<div class="timeline-card timeline-card-primary card shadow-sm">
+				<div class="card-body">
+					<div class="h5 mb-1">
+						<a href="@item.ProjectUrl">
+							@item.PortfolioName
+						</a>
+					</div>
+					<div>@item.Description</div>
+				</div>
+			</div>
+		}
+	</div>
+</div>

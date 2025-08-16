@@ -1,0 +1,35 @@
+﻿@using EntityLayer.Concrete
+@model List<Testimonial>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="page-content">
+	<div class="container">
+		<div class="cover shadow-lg bg-white" style="width:1200px">
+			<div class="education-section px-3 px-lg-4 pb-4">
+				<h2 class="h3 mb-4">Referanslar</h2>
+				<div class="timeline">
+					@foreach (var item in Model)
+					{
+						<div class="timeline-card timeline-card-success card shadow-sm shadow-lg">
+							<div class="card-body ">
+								<div class="h5 mb-1">@item.Name @item.SurName </div>
+								<div class="text-muted text-small mb-2">@item.Mail</div>
+								<div>@item.Description</div>
+								<a href="/Testimonial/EditTestimonial/@item.TestimonialID/" class="btn btn-outline-primary"><b>Güncelle</b></a>
+								<a href="/Testimonial/DeleteTestimonial/@item.TestimonialID/" class="btn btn-outline-danger" onclick="return confirm('Kalıcı Olarak Silmek İstediğinize Emin misiniz?');"><b>Sil</b></a>
+							</div>
+						</div>
+					}
+				</div>
+				<a href="/Testimonial/AddTestimonial/" class="btn btn-success"><b>Referans Ekle</b></a>
+			</div>
+		</div>
+	</div>
+</div>
+<script src="~/right-resume_free_1-2-0/scripts/bootstrap.bundle.min.js?ver=1.2.0"></script>
+<script src="~/right-resume_free_1-2-0/scripts/aos.js?ver=1.2.0"></script>
+<script src="~/right-resume_free_1-2-0/scripts/main.js?ver=1.2.0"></script>

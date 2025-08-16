@@ -1,0 +1,121 @@
+﻿@using EntityLayer.Concrete
+@model List<SocialMedia>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container">
+	<div class="row justify-content-center">
+		<div class="col-lg-6 col-md-8 col-sm-10 d-flex justify-content-center">
+			<div class="card card-primary card-outline shadow-lg" style="width: 600px;">
+				<h3 class="alert-primary text-center text-bold">Sosyal Medya</h3>
+				<div class="card-body box-profile text-center">
+					<table class=" table table-bordered">
+						@foreach (var item in Model)
+						{
+							<tr>
+								<td  class="btn-outline-info">@item.Name</td>
+								<td  class="btn-outline-primary">@item.Icon</td>
+								<td style="padding: 0;">
+									<a href="@item.Account" target="_blank" class="btn btn-outline-success btn-block">
+										Adrese Git
+									</a>
+								</td>
+								<td style="padding: 0;">
+									<a href="/Socialmedia/DeleteSocialmedia/@item.SocialMediaID/"
+									   class="btn btn-outline-danger btn-block"
+									   onclick="return confirm('Kalıcı Olarak Silmek İstediğinize Emin misiniz?');">
+										Sil
+									</a>
+								</td>
+								<td style="padding: 0;">
+									<button type="button" class="btn btn-outline-warning btn-block btnEdit"
+											data-id="@item.SocialMediaID"
+											data-name="@item.Name"
+											data-account="@item.Account"
+											data-icon="@item.Icon"
+											data-toggle="modal" data-target="#editModal">
+										Güncelle
+									</button>
+								</td>
+							</tr>
+						}
+					</table>
+				</div>
+				<button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#modaladd"> Ekle</button>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="modal" id="modaladd">
+	<div class="modal-dialog">
+		<div class=" modal-content">
+			<div class="modal-header">
+				<h2>Sosyal Medya Ekle </h2>
+			</div>
+			<form method="post" asp-action="AddSocialmedia" asp-controller="Socialmedia" class="form-group">
+				<div class="modal-body">
+					<label>Platform</label>
+					<input type="text" name="Name" class="form-control" />
+				</div>
+				<div class="modal-body">
+					<label>İkon</label>
+					<input type="text" name="Icon" class="form-control" />
+				</div>
+				<div class="modal-body">
+					<label>Adres</label>
+					<input type="text" name="Account" class="form-control" />
+				</div>
+				<button type="submit" class="btn btn-primary">Onayla</button>
+				<button type="button" class="btn btn-dark" data-dismiss="modal">İptal</button>
+			</form>
+		</div>
+	</div>
+</div>
+<div class="modal" id="editModal">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h2>Sosyal Medya Güncelle</h2>
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+			</div>
+			<form method="post" asp-action="EditSocialmedia" asp-controller="Socialmedia">
+				<div class="modal-body">
+					<input type="hidden" id="editId" name="SocialMediaID">
+					<label>Platform</label>
+					<input type="text" id="editName" name="Name" class="form-control" required />					
+					<label>İkon</label>
+					<input type="text" id="editIcon" name="Icon" class="form-control" required />
+					<label>Adres</label>
+					<input type="text" id="editAccount" name="Account" class="form-control" required />
+				</div>
+				<div class="modal-footer">
+					<button type="submit" class="btn btn-success">Güncelle</button>
+					<button type="button" class="btn btn-dark" data-dismiss="modal">İptal</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+	$(document).ready(function () {
+		$(".btnEdit").click(function () {
+			var id = $(this).data("id");
+			var name = $(this).data("name");
+			var icon = $(this).data("icon");
+			var account = $(this).data("account");
+
+			$("#editId").val(id);
+			$("#editName").val(name);
+			$("#editIcon").val(icon);
+			$("#editAccount").val(account);
+		});
+	});
+</script>
+
+<script src="~/right-resume_free_1-2-0/scripts/bootstrap.bundle.min.js?ver=1.2.0"></script>
+<script src="~/right-resume_free_1-2-0/scripts/aos.js?ver=1.2.0"></script>
+<script src="~/right-resume_free_1-2-0/scripts/main.js?ver=1.2.0"></script>

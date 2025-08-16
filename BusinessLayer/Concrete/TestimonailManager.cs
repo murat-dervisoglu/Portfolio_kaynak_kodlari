@@ -1,0 +1,51 @@
+﻿using BusinessLayer.Abstract;
+using DataAccessLayer.Abstract;
+using EntityLayer.Concrete;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace BusinessLayer.Concrete
+{
+    public class TestimonailManager : ITestimonialService
+    {
+        ITestimonialDal _testimonailDal;
+
+        public TestimonailManager(ITestimonialDal testimonailDal)
+        {
+            _testimonailDal = testimonailDal;
+        }
+
+        public void TAdd(Testimonial t)
+        {
+            _testimonailDal.Insert(t);
+        }
+
+        public void TDelete(Testimonial t)
+        {
+            _testimonailDal.Delete(t);
+        }
+
+        public Testimonial TGetByID(int id)
+        {
+            return _testimonailDal.GetByID(id);
+        }
+
+        public List<Testimonial> TGetList()
+        {
+            return _testimonailDal.GetList();
+        }
+
+        public List<Testimonial> TGetListByFilter()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void TUpdate(Testimonial t)
+        {
+            _testimonailDal.Update(t);
+        }
+    }
+}

@@ -1,0 +1,25 @@
+﻿@using EntityLayer.Concrete
+@model List<Testimonial>
+
+<div class="card card-secondary" id="testimonials">
+	<div class="card-header">
+		<h3 class="card-title">Referanslar</h3>
+	</div>
+	<div class="card-body">
+		<div class="tab-content">
+			<div class="timeline timeline-inverse">
+				@foreach (var item in Model)
+				{
+					<div>
+						<div class="timeline-item">
+							<h3 class="timeline-header"><a href="#">@item.Name @item.SurName</a> @item.Mail</h3>
+							<div class="timeline-body">
+								@item.Description
+							</div>
+						</div>
+					</div>
+				}
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,18 @@
+﻿@using EntityLayer.Concrete
+@model List<Feature>
+<!-- Sidebar user panel (optional) -->
+<div class="user-panel mt-3 pb-3 mb-3 d-flex">
+    <div class="sidebar-header">
+        <h3 class="d-block">@Model[0].Name @Model[0].Surname</h3>
+    </div>
+</div>
+<style>
+	.sidebar-header {
+		color: white; /* Yazı rengi beyaz */
+		font-weight: bold;
+		word-wrap: break-word; /* Uzun kelimeleri bölebilir */
+		white-space: normal; /* Satır sonlarında alt satıra geç */
+		overflow-wrap: break-word;
+		text-align: center; /* (isteğe bağlı) ortalı görünmesi için */
+	}
+</style>

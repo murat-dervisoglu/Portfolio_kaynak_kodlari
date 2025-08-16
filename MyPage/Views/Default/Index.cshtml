@@ -1,0 +1,38 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="tr">
+    @await Html.PartialAsync("HeaderPartial")
+<body id="top">
+    <div class="page-content" style="margin-top:40px">
+        <div class="container">
+            <div class="cover shadow-lg bg-white">
+                @await Component.InvokeAsync("FeaturePart")
+                @await Component.InvokeAsync("AbutPart")
+                <hr class="d-print-none" />
+                @await Component.InvokeAsync("SkillsPart")
+                <hr class="d-print-none" />
+                @await Component.InvokeAsync("ExperiencePart")
+                <hr class="d-print-none" />
+                @await Component.InvokeAsync("PortfolioPart")
+                <hr class="d-print-none" />
+                @await Component.InvokeAsync("EducationPart")
+                <hr class="d-print-none" />
+                @await Component.InvokeAsync("TestimonialPart")
+                <hr class="d-print-none" />
+                <div class="contant-section px-3 px-lg-4 pb-4" id="contact">
+                    <h2 class="h3 text mb-3">İletişim</h2>
+                    <div class="row">
+						@await Component.InvokeAsync("ContactPart")
+                        @await Component.InvokeAsync("AboutLast")
+                    </div>
+                </div>                
+            </div>
+        </div>
+    </div>
+    <script src="~/right-resume_free_1-2-0/scripts/bootstrap.bundle.min.js?ver=1.2.0"></script>
+    <script src="~/right-resume_free_1-2-0/scripts/aos.js?ver=1.2.0"></script>
+    <script src="~/right-resume_free_1-2-0/scripts/main.js?ver=1.2.0"></script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+﻿@using EntityLayer.Concrete
+@model List<Feature>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="container">
+    <div class="row justify-content-center">
+        @foreach (var item in Model)
+        {
+            <div class="col-lg-6 col-md-8 col-sm-10 d-flex justify-content-center">
+                <div class="card card-primary card-outline shadow-lg" style="width: 600px;">
+                    <h3 class="alert-primary text-center text-bold " > ilk olarak</h3>
+                    <div class="card-body box-profile text-center">
+                        <div class="text-center">
+                            <img class="img-fluid img-circle"
+                                 src="@item.ImageUrl" width="100" height="100"
+                                 alt="User profile picture">
+                        </div>
+                        <ul class="list-group list-group-flush mb-3">
+                            <li class="list-group-item d-flex justify-content-between">
+                                <b>Ad:</b> <span>@item.Name</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between">
+                                <b>Soyad:</b> <span>@item.Surname</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between">
+                                <b>Başlık:</b> <span>@item.Title</span>
+                            </li>
+                        </ul>
+                        <a href="/Feature/EditFeature/@item.FeatureID/" class="btn btn-outline-primary w-100"><b>Güncelle</b></a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

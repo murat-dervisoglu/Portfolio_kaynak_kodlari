@@ -1,0 +1,55 @@
+﻿@using EntityLayer.Concrete
+@model List<Skills>
+@{
+	ViewData["Title"] = "Index";
+	Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container">
+	<div class="row justify-content-center">
+		<div class="col-lg-6 col-md-8 col-sm-10 d-flex justify-content-center">
+			<div class="card card-primary card-outline shadow-lg" style="width: 600px;">
+				<h3 class="alert-primary text-center text-bold">Beceriler</h3>
+				<div class="card-body box-profile text-center">
+
+					<table class=" table table-bordered">
+						@foreach (var item in Model)
+						{
+							<tr>
+								<td>@item.Name</td>
+								<td style="padding: 0;">
+									<a href="/Skill/DeleteSkill/@item.SkillID/"
+									   class="btn btn-outline-danger btn-block"
+									   onclick="return confirm('Kalıcı Olarak Silmek İstediğinize Emin misiniz?');">
+										Sil
+									</a>
+								</td>
+							</tr>
+						}
+					</table>
+				</div>
+				<button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#modaledit"> Ekle</button>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="modal" id="modaledit">
+	<div class="modal-dialog">
+		<div class=" modal-content">
+			<div class="modal-header">
+				<h2>Beceri Ekle </h2>
+			</div>
+			<form method="post" asp-action="AddSkill" asp-controller="Skill" class="form-group">
+				<div class="modal-body">
+					<label>Beceri</label>
+					<input type="text" name="Name" class="form-control" />
+				</div>
+				<button type="submit" class="btn btn-primary">Onayla</button>
+				<button type="button" class="btn btn-dark" data-dismiss="modaledit">İptal</button>
+			</form>
+		</div>
+	</div>
+</div>
+<script src="~/right-resume_free_1-2-0/scripts/bootstrap.bundle.min.js?ver=1.2.0"></script>
+<script src="~/right-resume_free_1-2-0/scripts/aos.js?ver=1.2.0"></script>
+<script src="~/right-resume_free_1-2-0/scripts/main.js?ver=1.2.0"></script>

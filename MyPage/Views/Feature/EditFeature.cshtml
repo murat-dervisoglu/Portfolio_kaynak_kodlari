@@ -1,0 +1,35 @@
+﻿@model MyPage.Models.EditProfileViewModel
+@{
+	ViewData["Title"] = "EditFeature";
+	Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="col-md-12">
+	<div class="card">
+		<form class="form-group" asp-action="EditFeature" asp-controller="Feature" method="post" enctype="multipart/form-data">
+			<div class="card-header border-0">
+				<h4 class="mb-0">Profili Güncelle</h4>
+			</div>
+			<div class="card-body">
+				@Html.HiddenFor(x => x.Id)
+				<div class="form-group">
+					<label>Ad</label>
+					@Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+				</div>
+				<div class="form-group">
+					<label>Soyad </label>
+					@Html.TextBoxFor(x => x.Surname, new { @class = "form-control" })
+				</div>
+				<div class="form-group">
+					<label>Ünvan</label>
+					@Html.TextBoxFor(x => x.Title, new { @class = "form-control" })
+				</div>
+				<div class="form-group">
+					<label>Görsel</label>
+					<input type="file" name="Image">
+				</div>
+				<button type="submit" class="btn btn-primary mr-2">Kaydet</button>
+				<button type="button" class="btn btn-light" onclick="history.back()">Geri</button>
+			</div>
+		</form>
+	</div>
+</div>
